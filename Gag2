@@ -37,13 +37,13 @@ local LocalPlayer = Players.LocalPlayer
 -- PREVENT MULTIPLE LOOPS RUNNING (KILL OLD THREADS)
 -- ============================================================
 if getgenv and getgenv() then
-    if getgenv().PHCzackRunningId then
-        getgenv().PHCzackRunningId = getgenv().PHCzackRunningId + 1
+    if getgenv().SECasadaRunningId then
+        getgenv().SECasadaRunningId = getgenv().SECasadaRunningId + 1
     else
-        getgenv().PHCzackRunningId = 1
+        getgenv().SECasadaRunningId = 1
     end
 end
-local currentThreadId = (getgenv and getgenv().PHCzackRunningId) or 1
+local currentThreadId = (getgenv and getgenv().SECasadaRunningId) or 1
 
 local Networking = nil
 pcall(function()
@@ -53,10 +53,18 @@ end)
 -- ============================================================
 -- OPTIONS & LISTS
 -- ============================================================
-local FruitList = { "Buttercup", "Pineapple", "Grape", "Apple", "Carrot", "Strawberry", "Blueberry", "Tomato", "Pumpkin", "Bamboo", "Mushroom", "Coconut", "Cactus", "Mango", "Cherry", "Sunflower", "Acorn", "Beanstalk", "Poison Apple", "Venus Fly Trap", "Thorn Rose", "Pomegranate", "Lotus", "Romanesco", "Baby Cactus", "Glow Mushroom", "Ghost Pepper", "Poison Ivy", "Horned Melon", "Corn", "Pinetree", "Banana", "Tulip", "Dragon Fruit", "Dragon's Breath", "Moon Bloom", "Green Bean", "Venom Spitter", "Hypnobloom" }
+local FruitList = { "Buttercup", "Pineapple", "Grape", "Apple", "Carrot", "Strawberry", "Blueberry", "Tomato", "Pumpkin", "Bamboo", "Mushroom", "Coconut", "Cactus", "Mango", "Cherry", "Sunflower", "Acorn", "Beanstalk", "Poison Apple", "Venus Fly Trap", "Thorn Rose", "Pomegranate", "Lotus", "Romanesco", "Baby Cactus", "Glow Mushroom", "Ghost Pepper", "Poison Ivy", "Horned Melon", "Corn", "Pinetree", "Banana", "Tulip", "Dragon Fruit", "Dragon's Breath", "Moon Bloom", "Green Bean", "Venom Spitter", "Hypnobloom","Star Fruit", "Sun Bloom" }
+
+
 local MutationList = { "Gold", "Rainbow", "Electric", "Solarflare", "Frozen", "Bloodlit", "Chained", "Pizza", "Starstruck", "Aurora" }
+
+
 local GearList = { "Common Watering Can", "Common Sprinkler", "Sign", "Megaphone", "Lantern", "Uncommon Sprinkler", "Rare Sprinkler", "Legendary Sprinkler", "Super Sprinkler", "Trowel", "Speed Mushroom", "Jump Mushroom", "Gnome", "Shrink Mushroom", "Supersize Mushroom", "Invisibility Mushroom", "Teleporter", "Legendary Pet Teleporter", "Mythic Pet Teleporter", "Super Pet Teleporter", "Super Watering Can", "Basic Pot", "Flashbang", "Player Magnet", "Grappling Hook", "Wheelbarrow", "Strawberry Sniper" }
+
+
 local PropList = { "Light Crate", "Arch Crate", "Bench Crate", "Bridge Crate", "Seesaw Crate", "Sign Crate", "Teleporter Pad Crate", "Ladder Crate", "Fence Crate", "Owner Door Crate", "Conveyor Crate", "Spring Crate", "Roleplay Crate", "Bear Trap Crate" }
+
+
 local PetList = { "Raccoon", "Robin", "Frog", "Bunny", "Deer", "Owl", "Bee", "Unicorn", "GoldenDragonfly", "Monkey", "BlackDragon", "IceSerpent", "Bear" }
 
 local Options = {
@@ -142,19 +150,19 @@ MainTab:CreateSlider({
     end,
 })
 
-_G.PHCzack_InfJump = false
+_G.SecreAsada_InfJump = false
 MainTab:CreateToggle({
     Name = "Infinite Jump",
     CurrentValue = false,
     Flag = "InfJumpToggle",
     Callback = function(on)
-        _G.PHCzack_InfJump = on
+        _G.SecreAsada_InfJump = on
     end,
 })
 
-if not _G.PHCzack_IJConn then
-    _G.PHCzack_IJConn = game:GetService("UserInputService").JumpRequest:Connect(function()
-        if _G.PHCzack_InfJump then
+if not _G.SecreAsada_IJConn then
+    _G.SecreAsada_IJConn = game:GetService("UserInputService").JumpRequest:Connect(function()
+        if _G.SecreAsada_InfJump then
             local c = LocalPlayer.Character
             if c and c:FindFirstChild("Humanoid") then
                 c.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
@@ -469,7 +477,7 @@ local function SmartFly(targetCFrame, toggleCheck)
     local root = char.HumanoidRootPart
     
     while true do
-        if getgenv and getgenv().PHCzackRunningId and getgenv().PHCzackRunningId ~= currentThreadId then
+        if getgenv and getgenv().SECasadaRunningId and getgenv().SECasadaRunningId ~= currentThreadId then
             root.Anchored = false
             return false
         end
@@ -517,7 +525,7 @@ end
 
 task.spawn(function()
     while task.wait(1) do
-        if getgenv and getgenv().PHCzackRunningId and getgenv().PHCzackRunningId ~= currentThreadId then
+        if getgenv and getgenv().SECasadaRunningId and getgenv().SECasadaRunningId ~= currentThreadId then
             break
         end
 
@@ -825,6 +833,7 @@ task.spawn(function()
         end
     end
 end)
+
 
 -- Pet Hook Integration Loop
 local petsFolder = workspace:FindFirstChild("Pets")
