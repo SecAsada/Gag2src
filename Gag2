@@ -1,4 +1,4 @@
--- // Zacky Source (Rayfield UI Remake)
+
 
 -- ============================================================
 -- LOAD THE LIBRARY
@@ -8,12 +8,12 @@
 -- ============================================================
 local Window = Rayfield:CreateWindow({
     Name = "Grow a Garden 2",
-    LoadingTitle = "Zacky Source",
-    LoadingSubtitle = "by Zack1211",
+    LoadingTitle = "SEC ASADA",
+    LoadingSubtitle = "@Secre_Dev",
     ConfigurationSaving = {
         Enabled = false,
         FolderName = nil,
-        FileName = "ZackyGarden"
+        FileName = "SEC ASADA GAG2"
     },
     Discord = {
         Enabled = false,
