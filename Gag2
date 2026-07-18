@@ -53,10 +53,10 @@ end)
 -- ============================================================
 -- OPTIONS & LISTS
 -- ============================================================
-local FruitList = { "Buttercup", "Pineapple", "Grape", "Apple", "Carrot", "Strawberry", "Blueberry", "Tomato", "Pumpkin", "Bamboo", "Mushroom", "Coconut", "Cactus", "Mango", "Cherry", "Sunflower", "Acorn", "Beanstalk", "Poison Apple", "Venus Fly Trap", "Thorn Rose", "Pomegranate", "Lotus", "Romanesco", "Baby Cactus", "Glow Mushroom", "Ghost Pepper", "Poison Ivy", "Horned Melon", "Corn", "Pinetree", "Banana", "Tulip", "Dragon Fruit", "Dragon's Breath", "Moon Bloom", "Green Bean", "Venom Spitter", "Hypnobloom","Star Fruit", "Sun Bloom" }
+local FruitList = { "Carrot", "Strawberry", "Blueberry", "Tulip", "Tomato", "Apple", "Corn", "Bamboo", "Cactus", "Pineapple", "Mushroom", "Green Bean", "Banana", "Grape", "Coconut", "Mango", "Dragon Fruit", "Acorn", "Cherry ","Sunflower","Fire Fern", "Venus Fly Trap", "Pomegranate", "Poison Apple", "Briar Rose","Venom Spitter", "Moon Bloom", "Dragon's Breath", "Hypno Bloom","Star Fruit", "Sun Bloom","Baby Cactus", "Horned Melon", "Glow Mushroom", "Poison Ivy", "Ghost Pepper"  }
 
 
-local MutationList = { "Gold", "Rainbow", "Electric", "Solarflare", "Frozen", "Bloodlit", "Chained", "Pizza", "Starstruck", "Aurora" }
+local MutationList = { "Gold", "Rainbow", "Electric",  "Frozen", "Bloodlit", "Starstruck", "Aurora" }
 
 
 local GearList = { "Common Watering Can", "Common Sprinkler", "Sign", "Megaphone", "Lantern", "Uncommon Sprinkler", "Rare Sprinkler", "Legendary Sprinkler", "Super Sprinkler", "Trowel", "Speed Mushroom", "Jump Mushroom", "Gnome", "Shrink Mushroom", "Supersize Mushroom", "Invisibility Mushroom", "Teleporter", "Legendary Pet Teleporter", "Mythic Pet Teleporter", "Super Pet Teleporter", "Super Watering Can", "Basic Pot", "Flashbang", "Player Magnet", "Grappling Hook", "Wheelbarrow", "Strawberry Sniper" }
@@ -65,7 +65,7 @@ local GearList = { "Common Watering Can", "Common Sprinkler", "Sign", "Megaphone
 local PropList = { "Light Crate", "Arch Crate", "Bench Crate", "Bridge Crate", "Seesaw Crate", "Sign Crate", "Teleporter Pad Crate", "Ladder Crate", "Fence Crate", "Owner Door Crate", "Conveyor Crate", "Spring Crate", "Roleplay Crate", "Bear Trap Crate" }
 
 
-local PetList = { "Raccoon", "Robin", "Frog", "Bunny", "Deer", "Owl", "Bee", "Unicorn", "GoldenDragonfly", "Monkey", "BlackDragon", "IceSerpent", "Bear" }
+local PetList = { "Bunny", "Frog", "Owl", "Monkey", "Robin", "Bee", "Deer", "Unicorn", "GoldenDragonfly", "Raccoon", "Ice Serpent", "Bear", "BlackDragon","Turtle","Butterfly" ,"Bald Eagle" ,"Firefly" }
 
 local Options = {
     AutoShovel = false,
