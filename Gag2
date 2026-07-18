@@ -23,10 +23,6 @@ local Window = Rayfield:CreateWindow({
         RememberJoins = true
     },
     KeySystem = false,
-    -- ADD THESE LINES:
-    BackgroundImage = "92122764635655",   -- Change this to your image ID or URL
-    BackgroundTransparency = 0.5,                 -- Optional: 0 = opaque, 1 = fully transparent
-    BackgroundColor = Color3.fromRGB(25, 25, 25)  -- Optional: fallback color behind the image
 })
 
 -- ============================================================
