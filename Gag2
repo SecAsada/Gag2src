@@ -1,6 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-
-
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/SecAsada/Rayfield/refs/heads/main/redec'))()
 -- ============================================================
 -- LOAD THE LIBRARY
 -- ============================================================
