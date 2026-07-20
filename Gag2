@@ -1,7 +1,5 @@
 
 
-
-
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 
@@ -11,7 +9,6 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- ============================================================
 -- CREATE WINDOW
 -- ============================================================
-
 local Window = Rayfield:CreateWindow({
     Name = " Sec Asada : Grow a Garden 2",
     LoadingTitle = "SEC ASADA",
@@ -117,7 +114,8 @@ local Options = {
 -- TABS
 -- ============================================================
 local MainTab    = Window:CreateTab("MAIN", nil)
-local FarmTab    = Window:CreateTab("FARM", nil)
+local NpsBuyTab    = Window:CreateTab("AUTO BUY", nil)
+local FarmTab    = Window:CreateTab("GARDEN", nil)
 local EventsTab  = Window:CreateTab("EVENTS", nil)
 local MiscTab    = Window:CreateTab("MISC", nil)
 local VisualsTab = Window:CreateTab("VISUALS", nil)
@@ -176,7 +174,117 @@ if not _G.SecreAsada_IJConn then
     end)
 end
 
+
+
+
+-- ============================================================
+-- NPC AUTO BUY 
+-- ============================================================
+
+
+NpsBuyTab:CreateSection("Auto Purchase Shop Seed")
+
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy All Seeds",
+    CurrentValue = false,
+    Flag = "AutoBuyAllSeeds",
+    Callback = function(v) Options.AutoBuyAllSeeds = v end,
+})
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy Selected Seeds",
+    CurrentValue = false,
+    Flag = "AutoBuySeeds",
+    Callback = function(v) Options.AutoBuySeeds = v end,
+})
+NpsBuyTab:CreateDropdown({
+    Name = "Seeds Selection",
+    Options = FruitList,
+    CurrentOption = {},
+    MultipleOptions = true,
+    Flag = "BuySeedsDrop",
+    Callback = function(selected) Options.BuySeeds = selected end,
+})
+
+NpsBuyTab:CreateSection("Auto Purchase Shop Gear")
+
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy All Gears",
+    CurrentValue = false,
+    Flag = "AutoBuyAllGears",
+    Callback = function(v) Options.AutoBuyAllGears = v end,
+})
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy Selected Gears",
+    CurrentValue = false,
+    Flag = "AutoBuyGears",
+    Callback = function(v) Options.AutoBuyGears = v end,
+})
+NpsBuyTab:CreateDropdown({
+    Name = "Gears Selection",
+    Options = GearList,
+    CurrentOption = {},
+    MultipleOptions = true,
+    Flag = "BuyGearsDrop",
+    Callback = function(selected) Options.BuyGears = selected end,
+})
+
+NpsBuyTab:CreateSection("Auto Purchase Shop Props")
+
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy All Props",
+    CurrentValue = false,
+    Flag = "AutoBuyAllProps",
+    Callback = function(v) Options.AutoBuyAllProps = v end,
+})
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy Selected Props",
+    CurrentValue = false,
+    Flag = "AutoBuyProps",
+    Callback = function(v) Options.AutoBuyProps = v end,
+})
+NpsBuyTab:CreateDropdown({
+    Name = "Props Selection",
+    Options = PropList,
+    CurrentOption = {},
+    MultipleOptions = true,
+    Flag = "BuyPropsDrop",
+    Callback = function(selected) Options.BuyProps = selected end,
+})
+
+
+NpsBuyTab:CreateSection("Wild Pets Shop")
+
+NpsBuyTab:CreateToggle({
+    Name = "Auto Buy Selected Wild Pets",
+    CurrentValue = false,
+    Flag = "AutoBuyPetsToggle",
+    Callback = function(v) Options.AutoBuyPets = v end,
+})
+
+NpsBuyTab:CreateDropdown({
+    Name = "Pets Filter",
+    Options = PetList,
+    CurrentOption = {},
+    MultipleOptions = true,
+    Flag = "BuyPetsDrop",
+    Callback = function(selected) Options.BuyPets = selected end,
+})
+
+NpsBuyTab:CreateSection("General Economy")
+
+NpsBuyTab:CreateToggle({
+    Name = "Auto Sell All Fruits",
+    CurrentValue = false,
+    Flag = "AutoSellToggle",
+    Callback = function(v) Options.AutoSell = v end,
+})
+
+
+-- ============================================================
+
+
 MainTab:CreateSection("Utilities")
+
 
 MainTab:CreateButton({
     Name = "Reset Character",
@@ -194,8 +302,31 @@ MainTab:CreateButton({
 })
 
 -- ============================================================
+
+
+-- ============================================================
 -- FARM TAB
 -- ============================================================
+
+FarmTab:CreateSection("Planting")
+
+FarmTab:CreateToggle({
+    Name = "Auto Plant Selected Seeds",
+    CurrentValue = false,
+    Flag = "AutoPlantToggle",
+    Callback = function(v) Options.AutoPlant = v end,
+})
+
+FarmTab:CreateDropdown({
+    Name = "Seeds to Plant",
+    Options = FruitList,
+    CurrentOption = {},
+    MultipleOptions = true,
+    Flag = "PlantSeedsDrop",
+    Callback = function(selected) Options.PlantSeeds = selected end,
+})
+
+
 FarmTab:CreateSection("Auto Shovel")
 
 FarmTab:CreateToggle({
@@ -257,106 +388,6 @@ FarmTab:CreateDropdown({
     Callback = function(selected) Options.HarvestMutations = selected end,
 })
 
-FarmTab:CreateSection("Auto Purchase Shop Items")
-
-FarmTab:CreateToggle({
-    Name = "Auto Buy All Seeds",
-    CurrentValue = false,
-    Flag = "AutoBuyAllSeeds",
-    Callback = function(v) Options.AutoBuyAllSeeds = v end,
-})
-FarmTab:CreateToggle({
-    Name = "Auto Buy Selected Seeds",
-    CurrentValue = false,
-    Flag = "AutoBuySeeds",
-    Callback = function(v) Options.AutoBuySeeds = v end,
-})
-FarmTab:CreateDropdown({
-    Name = "Seeds Selection",
-    Options = FruitList,
-    CurrentOption = {},
-    MultipleOptions = true,
-    Flag = "BuySeedsDrop",
-    Callback = function(selected) Options.BuySeeds = selected end,
-})
-
-FarmTab:CreateToggle({
-    Name = "Auto Buy All Gears",
-    CurrentValue = false,
-    Flag = "AutoBuyAllGears",
-    Callback = function(v) Options.AutoBuyAllGears = v end,
-})
-FarmTab:CreateToggle({
-    Name = "Auto Buy Selected Gears",
-    CurrentValue = false,
-    Flag = "AutoBuyGears",
-    Callback = function(v) Options.AutoBuyGears = v end,
-})
-FarmTab:CreateDropdown({
-    Name = "Gears Selection",
-    Options = GearList,
-    CurrentOption = {},
-    MultipleOptions = true,
-    Flag = "BuyGearsDrop",
-    Callback = function(selected) Options.BuyGears = selected end,
-})
-
-FarmTab:CreateToggle({
-    Name = "Auto Buy All Props",
-    CurrentValue = false,
-    Flag = "AutoBuyAllProps",
-    Callback = function(v) Options.AutoBuyAllProps = v end,
-})
-FarmTab:CreateToggle({
-    Name = "Auto Buy Selected Props",
-    CurrentValue = false,
-    Flag = "AutoBuyProps",
-    Callback = function(v) Options.AutoBuyProps = v end,
-})
-FarmTab:CreateDropdown({
-    Name = "Props Selection",
-    Options = PropList,
-    CurrentOption = {},
-    MultipleOptions = true,
-    Flag = "BuyPropsDrop",
-    Callback = function(selected) Options.BuyProps = selected end,
-})
-
-FarmTab:CreateSection("Planting")
-
-FarmTab:CreateToggle({
-    Name = "Auto Plant Selected Seeds",
-    CurrentValue = false,
-    Flag = "AutoPlantToggle",
-    Callback = function(v) Options.AutoPlant = v end,
-})
-
-FarmTab:CreateDropdown({
-    Name = "Seeds to Plant",
-    Options = FruitList,
-    CurrentOption = {},
-    MultipleOptions = true,
-    Flag = "PlantSeedsDrop",
-    Callback = function(selected) Options.PlantSeeds = selected end,
-})
-
-FarmTab:CreateSection("Wild Pets Shop")
-
-FarmTab:CreateToggle({
-    Name = "Auto Buy Selected Wild Pets",
-    CurrentValue = false,
-    Flag = "AutoBuyPetsToggle",
-    Callback = function(v) Options.AutoBuyPets = v end,
-})
-
-FarmTab:CreateDropdown({
-    Name = "Pets Filter",
-    Options = PetList,
-    CurrentOption = {},
-    MultipleOptions = true,
-    Flag = "BuyPetsDrop",
-    Callback = function(selected) Options.BuyPets = selected end,
-})
 
 FarmTab:CreateSection("General Economy")
 
@@ -367,12 +398,6 @@ FarmTab:CreateToggle({
     Callback = function(v) Options.AutoCollectBest = v end,
 })
 
-FarmTab:CreateToggle({
-    Name = "Auto Sell All Fruits",
-    CurrentValue = false,
-    Flag = "AutoSellToggle",
-    Callback = function(v) Options.AutoSell = v end,
-})
 
 -- ============================================================
 -- EVENTS TAB
@@ -751,7 +776,6 @@ task.spawn(function()
         if Options.AutoSell then
             Networking.NPCS.SellAll:Fire()
         end
-        
         -- Weather Label Interface Controller
         local wv = game:GetService("ReplicatedStorage"):FindFirstChild("WeatherValues")
         if wv then
@@ -838,7 +862,6 @@ task.spawn(function()
         end
     end
 end)
-
 
 -- Pet Hook Integration Loop
 local petsFolder = workspace:FindFirstChild("Pets")
